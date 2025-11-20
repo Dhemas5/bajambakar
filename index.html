@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bajambakar</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <link rel="icon" type="image/png" href="img/Logo.png" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+
+    <style>
+      /* Animasi dan styling tambahan */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .zoom-hover {
+        transition: transform 0.3s ease;
+      }
+
+      .zoom-hover:hover {
+        transform: scale(1.05);
+      }
+
+      .pulse-animation {
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .bg-red-gradient {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      }
+
+      .border-red-custom {
+        border: 3px solid #dc3545;
+      }
+
+      .shadow-red {
+        box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+      }
+
+      .btn-red-custom {
+        background: linear-gradient(135deg, #dc3545, #c82333);
+        border: none;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .btn-red-custom:hover {
+        background: linear-gradient(135deg, #c82333, #dc3545);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .card-hover:hover {
+        border-color: #dc3545;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(220, 53, 69, 0.2);
+      }
+
+      .price-tag {
+        background: #dc3545;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 2;
+      }
+
+      /* Styling untuk video section - format potret */
+      .video-container-portrait {
+        position: relative;
+        max-width: 400px;
+        margin: 0 auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .video-container-portrait video {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* Styling untuk poster dan banner section */
+      .poster-banner-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .banner-item {
+        overflow: hidden;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .banner-item img {
+        transition: transform 0.5s ease;
+      }
+
+      .banner-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .banner-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        padding: 20px;
+        color: white;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .banner-item:hover .banner-overlay {
+        transform: translateY(0);
+      }
+
+      /* WhatsApp order button */
+      .whatsapp-btn {
+        background: #25d366;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .whatsapp-btn:hover {
+        background: #128c7e;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        color: white;
+      }
+
+      /* Styling untuk gambar makanan di about section */
+      .food-image {
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .food-image:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Styling untuk proses section yang baru */
+      .process-step {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        padding: 20px;
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border-left: 5px solid #dc3545;
+      }
+
+      .process-step:hover {
+        transform: translateX(10px);
+        box-shadow: 0 8px 25px rgba(220, 53, 69, 0.15);
+      }
+
+      .process-number {
+        background: #dc3545;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-right: 20px;
+        flex-shrink: 0;
+      }
+
+      .process-content h5 {
+        color: #dc3545;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .process-content p {
+        color: #666;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* Layout baru untuk video dan proses */
+      .process-layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
+      }
+
+      .video-side {
+        flex: 1;
+        max-width: 400px;
+      }
+
+      .process-side {
+        flex: 1;
+      }
+
+      @media (max-width: 992px) {
+        .process-layout {
+          flex-direction: column;
+        }
+
+        .video-side {
+          max-width: 100%;
+          margin-bottom: 40px;
+        }
+
+        .process-step {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Spinner Start -->
+    <div
+      id="spinner"
+      class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center"
+    >
+      <div class="spinner-grow text-danger" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar start -->
+    <div class="container-fluid fixed-top">
+      <div class="container topbar bg-danger d-none d-lg-block">
+        <div class="d-flex justify-content-between">
+          <div class="top-info ps-2">
+            <small class="me-3"
+              ><i class="fas fa-map-marker-alt me-2 text-warning"></i>
+              <a href="#" class="text-white"
+                >Gedung Terpadu Agribisnis - Politeknik Negeri Jember</a
+              ></small
+            >
+          </div>
+          <div class="top-link pe-2">
+            <a href="#" class="text-white"
+              ><small class="text-white mx-2">MNA 24</small>/</a
+            >
+            <a href="#" class="text-white"
+              ><small class="text-white mx-2">Golongan A</small>/</a
+            >
+            <a href="#" class="text-white"
+              ><small class="text-white ms-2">Kelompok A3</small></a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="container px-0">
+        <nav class="navbar navbar-light bg-white navbar-expand-xl">
+          <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <img
+              src="img/Logo.png"
+              alt="Logo Bajambakar"
+              style="height: 70px"
+            />
+            <h1 class="text-danger display-6 mb-0 ms-3">Bajambakar</h1>
+          </a>
+          <button
+            class="navbar-toggler py-2 px-3"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+          >
+            <span class="fa fa-bars text-danger"></span>
+          </button>
+          <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+            <div class="navbar-nav mx-auto">
+              <a href="#home" class="nav-item nav-link active">Home</a>
+              <a href="#tentang" class="nav-item nav-link">Tentang</a>
+              <a href="#menu" class="nav-item nav-link">Menu</a>
+              <a href="#proses" class="nav-item nav-link">Proses</a>
+              <a href="#tim" class="nav-item nav-link">Tim Kami</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Hero Start -->
+    <div
+      id="home"
+      class="container-fluid py-5 mb-5 hero-header bg-red-gradient"
+    >
+      <div class="container py-5">
+        <div class="row g-5 align-items-center">
+          <div class="col-md-12 col-lg-7">
+            <h4 class="mb-3 text-warning">Kelompok A3</h4>
+            <h1 class="mb-5 display-3 text-white">Bakso Jamur Bakar</h1>
+            <p class="mb-4 text-white lead">
+              Kreasi inovatif bakso dengan cita rasa jamur yang dipadukan dengan
+              teknik pembakaran yang sempurna, menghadirkan pengalaman kuliner
+              yang tak terlupakan.
+            </p>
+            <a
+              href="#menu"
+              class="btn btn-warning btn-lg px-5 py-3 rounded-pill zoom-hover"
+              >Lihat Menu <i class="fas fa-arrow-right ms-2"></i
+            ></a>
+          </div>
+          <div class="col-md-12 col-lg-5">
+            <div class="zoom-hover pulse-animation">
+              <img
+                src="img/Kumpulan Makanan.png"
+                class="img-fluid w-100 h-100 rounded shadow-red"
+                alt="Bakso Jamur Bakar"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Hero End -->
+
+    <!-- About Section Start -->
+    <div id="tentang" class="container-fluid py-5">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 fade-in-up">
+            <div class="text-center">
+              <img
+                src="img/bakso-jamur-detail.png"
+                class="img-fluid food-image shadow-red"
+                alt="Bakso Jamur Bakar Detail"
+                style="max-height: 500px; width: auto"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 fade-in-up">
+            <h2 class="display-5 mb-4 text-danger">
+              Tentang Bakso Jamur Bakar
+            </h2>
+            <p class="mb-4">
+              Bakso Jamur Bakar adalah inovasi terbaru dalam dunia kuliner yang
+              menggabungkan kelezatan bakso tradisional dengan cita rasa jamur
+              yang khas dan teknik pembakaran yang sempurna. Setiap gigitan
+              memberikan pengalaman rasa yang unik dan memikat.
+            </p>
+            <div class="d-flex mb-4">
+              <div
+                class="flex-shrink-0 bg-danger rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 50px; height: 50px"
+              >
+                <i class="fas fa-seedling text-white"></i>
+              </div>
+              <div class="ms-4">
+                <h5 class="text-danger">Bahan Berkualitas</h5>
+                <p class="mb-0">
+                  Menggunakan jamur segar pilihan dan daging ayam berkualitas
+                  premium yang dipilih secara teliti.
+                </p>
+              </div>
+            </div>
+            <div class="d-flex mb-4">
+              <div
+                class="flex-shrink-0 bg-danger rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 50px; height: 50px"
+              >
+                <i class="fas fa-fire text-white"></i>
+              </div>
+              <div class="ms-4">
+                <h5 class="text-danger">Pembakaran Sempurna</h5>
+                <p class="mb-0">
+                  Dibakar dengan teknik khusus menggunakan arang kayu asli untuk
+                  menghasilkan tekstur dan aroma yang optimal.
+                </p>
+              </div>
+            </div>
+            <div class="d-flex mb-4">
+              <div
+                class="flex-shrink-0 bg-danger rounded-circle d-flex align-items-center justify-content-center"
+                style="width: 50px; height: 50px"
+              >
+                <i class="fas fa-heart text-white"></i>
+              </div>
+              <div class="ms-4">
+                <h5 class="text-danger">Sehat dan Bergizi</h5>
+                <p class="mb-0">
+                  Kombinasi jamur dan daging ayam memberikan asupan protein
+                  tinggi dengan kalori yang terkontrol.
+                </p>
+              </div>
+            </div>
+            <a href="#proses" class="btn btn-red-custom px-4 py-2 rounded-pill"
+              >Lihat Proses Pembuatan</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About Section End -->
+
+    <!-- Menu Section Start -->
+    <div id="menu" class="container-fluid py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-up">
+          <h2 class="display-4 text-danger mb-3">Menu Spesial Kami</h2>
+          <p class="lead">Nikmati kelezatan Bakso Jamur Bakar kami</p>
+        </div>
+        <div class="row justify-content-center">
+          <!-- Menu Item 1 -->
+          <div class="col-lg-6 col-md-8 fade-in-up">
+            <div class="card card-hover h-100 border-red-custom">
+              <div class="position-relative">
+                <img
+                  src="img/bakso-jamur-detail.png"
+                  class="card-img-top"
+                  alt="Bakso Jamur Bakar"
+                />
+                <div class="price-tag">Rp 7.500</div>
+              </div>
+              <div class="card-body text-center">
+                <h5 class="card-title text-danger">
+                  Bakso Jamur Bakar Spesial
+                </h5>
+                <p class="card-text">
+                  Bakso jamur dengan bumbu rahasia, dibakar sempurna dengan
+                  aroma yang menggugah selera. Disajikan dengan saus spesial dan
+                  taburan bawang goreng. Setiap porsi dilengkapi dengan nasi
+                  hangat dan lalapan segar.
+                </p>
+                <div class="d-flex justify-content-center mb-3">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                </div>
+                <a
+                  href="https://wa.me/6285824163428?text=Halo,%20saya%20ingin%20memesan%20Bakso%20Jamur%20Bakar%20Spesial%20seharga%20Rp%207.500"
+                  class="whatsapp-btn"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Menu Section End -->
+
+    <!-- Process Section Start -->
+    <div id="proses" class="container-fluid py-5">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-up">
+          <h2 class="display-4 text-danger mb-3">Proses Pembuatan</h2>
+          <p class="lead">Dari bahan baku hingga hidangan siap saji</p>
+        </div>
+
+        <!-- Layout Baru: Video di Kiri, Proses di Kanan -->
+        <div class="process-layout fade-in-up">
+          <!-- Video di Kiri -->
+          <div class="video-side">
+            <div class="video-container-portrait">
+              <!-- Ganti dengan video langsung Anda -->
+              <video controls poster="img/Kumpulan Makanan.png">
+                <source src="video/proses-pembuatan.mp4" type="video/mp4" />
+                <source src="video/proses-pembuatan.webm" type="video/webm" />
+                Browser Anda tidak mendukung pemutar video.
+              </video>
+            </div>
+          </div>
+
+          <!-- Proses di Kanan -->
+          <div class="process-side">
+            <!-- Langkah 1 -->
+            <div class="process-step fade-in-up" style="animation-delay: 0.1s">
+              <div class="process-number">1</div>
+              <div class="process-content">
+                <h5>Persiapan Bahan</h5>
+                <p>
+                  Jamur segar dan daging pilihan dipersiapkan dengan teliti
+                  untuk memastikan kualitas terbaik.
+                </p>
+              </div>
+            </div>
+
+            <!-- Langkah 2 -->
+            <div class="process-step fade-in-up" style="animation-delay: 0.2s">
+              <div class="process-number">2</div>
+              <div class="process-content">
+                <h5>Pencampuran</h5>
+                <p>
+                  Bahan dicampur dengan bumbu rahasia secara merata untuk
+                  menghasilkan cita rasa yang konsisten.
+                </p>
+              </div>
+            </div>
+
+            <!-- Langkah 3 -->
+            <div class="process-step fade-in-up" style="animation-delay: 0.3s">
+              <div class="process-number">3</div>
+              <div class="process-content">
+                <h5>Pembakaran</h5>
+                <p>
+                  Dibakar dengan suhu terkontrol menggunakan teknik khusus untuk
+                  menghasilkan tekstur dan aroma yang optimal.
+                </p>
+              </div>
+            </div>
+
+            <!-- Langkah 4 -->
+            <div class="process-step fade-in-up" style="animation-delay: 0.4s">
+              <div class="process-number">4</div>
+              <div class="process-content">
+                <h5>Penyajian</h5>
+                <p>
+                  Disajikan hangat dengan pelengkap yang sempurna untuk
+                  pengalaman kuliner yang tak terlupakan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Process Section End -->
+
+    <!-- Poster & Banner Section Start -->
+    <div class="container-fluid py-5 poster-banner-section">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-up">
+          <h2 class="display-4 text-white mb-3">Poster & Banner</h2>
+          <p class="lead text-white-50">
+            Lihat koleksi poster dan banner promosi kami
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Banner 1 -->
+          <div class="col-lg-2 col-md-2 col-sm-6 text-center fade-in-up">
+            <div
+              class="banner-item position-relative overflow-hidden rounded shadow-red"
+            >
+              <img
+                src="img/banner-1.png"
+                class="img-fluid w-100"
+                alt="Banner Promosi 1"
+              />
+              <div class="banner-overlay">
+                <p class="mb-0">X Banner</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Poster 1 -->
+          <div
+            class="col-lg-6 col-md-6 col-sm-6 text-center fade-in-up"
+            style="animation-delay: 0.6s"
+          >
+            <div
+              class="banner-item position-relative overflow-hidden rounded shadow-red"
+            >
+              <img
+                src="img/poster-1.png"
+                class="img-fluid w-100"
+                alt="Poster 1"
+              />
+              <div class="banner-overlay">
+                <p class="mb-0">Banner Atas Both</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Poster 2 -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 text-center fade-in-up"
+            style="animation-delay: 0.8s"
+          >
+            <div
+              class="banner-item position-relative overflow-hidden rounded shadow-red"
+            >
+              <img
+                src="img/poster-2.png"
+                class="img-fluid w-100"
+                alt="Poster 2"
+              />
+              <div class="banner-overlay">
+                <p class="mb-0">Banner Bawah Both</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Poster & Banner Section End -->
+
+    <!-- Benefits Section Start -->
+    <div class="container-fluid py-5 bg-danger text-white">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-up">
+          <h2 class="display-4 text-white mb-3">Manfaat Bakso Jamur Bakar</h2>
+          <p class="lead">Nikmati kelezatan dengan manfaat kesehatan</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 fade-in-up">
+            <div class="text-center p-4 bg-white text-dark rounded shadow-red">
+              <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+              <h5 class="text-danger">Kaya Protein</h5>
+              <p>
+                Mengandung protein tinggi dari jamur dan daging untuk energi
+                optimal
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 fade-in-up"
+            style="animation-delay: 0.2s"
+          >
+            <div class="text-center p-4 bg-white text-dark rounded shadow-red">
+              <i class="fas fa-leaf fa-3x text-danger mb-3"></i>
+              <h5 class="text-danger">Rendah Kalori</h5>
+              <p>
+                Pilihan sehat dengan kalori terkontrol, cocok untuk diet
+                seimbang
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6 fade-in-up"
+            style="animation-delay: 0.4s"
+          >
+            <div class="text-center p-4 bg-white text-dark rounded shadow-red">
+              <i class="fas fa-shield-alt fa-3x text-danger mb-3"></i>
+              <h5 class="text-danger">Kaya Serat</h5>
+              <p>Jamur mengandung serat alami yang baik untuk pencernaan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Benefits Section End -->
+
+    <!-- Team Section Start -->
+    <div id="tim" class="container-fluid py-5">
+      <div class="container">
+        <div class="text-center mb-5 fade-in-up">
+          <h2 class="display-4 text-danger mb-3">Anggota Kami</h2>
+          <p class="lead">Orang-orang di balik kelezatan Bakso Jamur Bakar</p>
+        </div>
+        <div class="row g-4">
+          <!-- Anggota Tim 1 -->
+          <div class="col-lg-3 col-md-4 col-sm-6 fade-in-up">
+            <div class="team-item text-center card-hover">
+              <img
+                src="img/team-1.png"
+                class="img-fluid rounded-circle mb-3 border-red-custom"
+                alt="Chef"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              <h5 class="text-danger">Anggota 1</h5>
+            </div>
+          </div>
+
+          <!-- Anggota Tim 2 -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            <div class="team-item text-center card-hover">
+              <img
+                src="img/team-2.png"
+                class="img-fluid rounded-circle mb-3 border-red-custom"
+                alt="Manager"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              <h5 class="text-danger">Anggota 2</h5>
+            </div>
+          </div>
+
+          <!-- Anggota Tim 3 -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 fade-in-up"
+            style="animation-delay: 0.2s"
+          >
+            <div class="team-item text-center card-hover">
+              <img
+                src="img/team-3.png"
+                class="img-fluid rounded-circle mb-3 border-red-custom"
+                alt="Staff"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              <h5 class="text-danger">Anggota 3</h5>
+            </div>
+          </div>
+
+          <!-- Anggota Tim 4 -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 fade-in-up"
+            style="animation-delay: 0.3s"
+          >
+            <div class="team-item text-center card-hover">
+              <img
+                src="img/team-4.png"
+                class="img-fluid rounded-circle mb-3 border-red-custom"
+                alt="Staff"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              <h5 class="text-danger">Anggota 4</h5>
+            </div>
+          </div>
+
+          <!-- Anggota Tim 5 -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 fade-in-up"
+            style="animation-delay: 0.4s"
+          >
+            <div class="team-item text-center card-hover">
+              <img
+                src="img/team-5.png"
+                class="img-fluid rounded-circle mb-3 border-red-custom"
+                alt="Staff"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              <h5 class="text-danger">Anggota 5</h5>
+            </div>
+          </div>
+
+          <!-- Anggota Tim 6 -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 fade-in-up"
+            style="animation-delay: 0.5s"
+          >
+            <div class="team-item text-center card-hover">
+              <img
+                src="img/team-6.png"
+                class="img-fluid rounded-circle mb-3 border-red-custom"
+                alt="Staff"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              <h5 class="text-danger">Anggota 6</h5>
+              <!-- <p class="text-muted">Marketing</p>
+              <p>Memperkenalkan produk ke masyarakat luas</p> -->
+            </div>
+          </div>
+
+          <!-- Anggota Tim 7 -->
+          <div
+            class="col-lg-3 col-md-4 col-sm-6 fade-in-up"
+            style="animation-delay: 0.6s"
+          >
+            <div class="team-item text-center card-hover">
+              <img
+                src="img/team-7.png"
+                class="img-fluid rounded-circle mb-3 border-red-custom"
+                alt="Staff"
+                style="width: 150px; height: 150px; object-fit: cover"
+              />
+              <h5 class="text-danger">Anggota 7</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Section End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-danger text-white-50 footer pt-5 mt-5">
+      <div class="container py-5">
+        <div
+          class="pb-4 mb-4"
+          style="border-bottom: 1px solid rgba(255, 255, 255, 0.3)"
+        >
+          <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                <h4 class="text-light mb-3">Informasi</h4>
+                <a class="btn-link" href="#tentang">Tentang Kami</a>
+                <a class="btn-link" href="#menu">Menu</a>
+                <a class="btn-link" href="#proses">Proses Pembuatan</a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item text-start">
+                <h4 class="text-light mb-4">Sosial Media</h4>
+                <div class="d-flex gap-3">
+                  <a
+                    href="https://wa.me/6285824163428"
+                    class="btn btn-outline-light rounded-circle zoom-hover"
+                    target="_blank"
+                    aria-label="WhatsApp"
+                  >
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/bajambakar.pbl_"
+                    class="btn btn-outline-light rounded-circle zoom-hover"
+                    target="_blank"
+                    aria-label="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item text-center">
+                <img
+                  src="img/Logo.png"
+                  alt="Logo Aplikasi"
+                  style="width: 100px; height: auto"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <span class="text-light"
+              ><a href="#"
+                ><i class="fas fa-copyright text-light me-2"></i>Bajambakar</a
+              >, All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 my-auto text-center text-md-end text-white">
+            Designed By
+            <a class="border-bottom" href="">MNA A3</a>
+            Distributed By
+            <a class="border-bottom" href="">Bajambakar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a
+      href="#"
+      class="btn btn-danger border-3 border-danger rounded-circle back-to-top zoom-hover"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script>
+      // Animasi scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        document.querySelectorAll(".fade-in-up").forEach((el) => {
+          observer.observe(el);
+        });
+
+        // Smooth scroll untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 100,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        // Hide spinner ketika halaman sudah dimuat
+        window.addEventListener("load", function () {
+          const spinner = document.getElementById("spinner");
+          if (spinner) {
+            spinner.style.display = "none";
+          }
+        });
+      });
+
+      // Back to top button functionality
+      const backToTopButton = document.querySelector(".back-to-top");
+
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 300) {
+          backToTopButton.style.display = "block";
+        } else {
+          backToTopButton.style.display = "none";
+        }
+      });
+
+      backToTopButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>
